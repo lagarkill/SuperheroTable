@@ -1,5 +1,7 @@
 var hero = [{ id: 1 ,lele: "puto" },{id: 2 , marciana: ""},{id:3 , mayus: ""}]
 
+var newHero = {};
+
 var onload = () =>{
     const xhr = new XMLHttpRequest();
 
@@ -23,7 +25,7 @@ const borrarHeroe = ()=>{
     for (let i = 0; i < hero.length; i++) {
         const element = hero[i];
 
-        element.forEach(nombre => {
+        element.forEach((nombre) => {
             
         });
         
@@ -49,14 +51,25 @@ const cargando = ()=>{
         if(id === "" || nombre === "" || alias === "" || bio === "" || enemigos === "" || universe === ""){
             alert('Tu Heroe no esta completo!!')
             return false;
-        } 
+        }
+
+         
     };    
     return agregar(id,nombre,alias,bio,enemigos,universe);
     
 };
 
+const masHeroes = (hero , newH)=>{
+        if(hero.indexOf(newH) === -1){
+            hero.push(newH);
+        } else{
+            alert('Ese heroe ya existe!')
+        }
+    
+    };
 
-const masHeroes = (hero , newHero)=>{
+//masHeroes(hero, newHero);
+/*const masHeroes = (hero , newHero)=>{
     if(hero.indexOf(newHero) === -1){
         hero.push(newHero);
     } else{
@@ -79,6 +92,6 @@ const menosHeroes = (hero , badHero)=>{
 }
 
 
-menosHeroes(hero , );
+menosHeroes(hero , );*/
 
 
