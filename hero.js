@@ -1,45 +1,47 @@
-var hero = [{ id: 1 ,lele: "puto" },{id: 2 , marciana: ""},{id:3 , mayus: ""}]
+//ARRAY DE PRACTICA SIMULANDO LA INFORMACION DE UN PEQUEÑO JSON ==============>
+
+var hero = [{ id: 1 ,nombre : "puto" },{id: 2 , nombre: "marciana"},{id:3 , nombre : "roberto"}]
+
+
+
+
+//VARIABLE DONDE SE ENVIARAN LOS DATOS DEL NUEVO HEROE A CREAR ================>
 
 var newHero = {};
 
-var onload = () =>{
-    const xhr = new XMLHttpRequest();
 
-    xhr.open('GET',"data.json",true),
 
-    xhr.onload = ()=>{
-            if(this.status == 200){
-                console.log(JSON.parse(this.responseText))
-        }
 
-    };
 
-    xhr.send();
-
-};
-
-onload();
-
+// FUNCION PARA BORRAR HEROES ==========>
 
 const borrarHeroe = ()=>{
-    for (let i = 0; i < hero.length; i++) {
-        const element = hero[i];
+    let nombre = document.getElementById('nombre').value;
+    hero.forEach((element)=>{
+        if(element.nombre == nombre){
+            hero.splice(element ,1)
+        }
+    })
 
-        element.forEach((nombre) => {
-            
-        });
-        
-    }
-    
 };
 
+//FIN FUNCION PARA BORRAR HEROES
+
+
+
+
+
+
+/*FUNCION PARA CREAR UN HEROE , LUEGO DE CARGADO SE EJECUTARA LA SEGUNDA FUNCION QUE LO AGREGARA AL ARRAY HERO
+O AL JSON UNA VES LO TENGAMOS====================================>  */
+
 const cargando = ()=>{
-    var nombre = document.getElementById('nombre').value;
-    var id = document.getElementById('id').value;
-    var alias = document.getElementById('alias').value;
-    var bio = document.getElementById('bio').value;
-    var enemigos = document.getElementById('enemigos').value;
-    var universe = document.getElementById('universe').value;
+    let nombre = document.getElementById('nombre').value;
+    let id = document.getElementById('id').value;
+    let alias = document.getElementById('alias').value;
+    let bio = document.getElementById('bio').value;
+    let enemigos = document.getElementById('enemigos').value;
+    let universe = document.getElementById('universe').value;
 
     const agregar = (id, nombre, alias, bio, enemigos , universe)=>{
         newHero.id = id;
@@ -59,6 +61,14 @@ const cargando = ()=>{
     
 };
 
+//FIN FUNCION PARA CREAR UN HEROE============================================================================
+
+
+
+
+/*FUNCION PARA CARGAR EL NUEVO HEROE AL ARRAY HERO , CUANDO TENGAMOS EL JSON SE ENCARAGARA DE CARGARLO AL MISMO
+================================>  */
+
 const masHeroes = (hero , newH)=>{
         if(hero.indexOf(newH) === -1){
             hero.push(newH);
@@ -68,30 +78,4 @@ const masHeroes = (hero , newH)=>{
     
     };
 
-//masHeroes(hero, newHero);
-/*const masHeroes = (hero , newHero)=>{
-    if(hero.indexOf(newHero) === -1){
-        hero.push(newHero);
-    } else{
-        alert('Ese heroe ya existe!')
-    }
-
-};
-
-masHeroes(hero , "arg");
-
-
-const menosHeroes = (hero , badHero)=>{
-    if(hero.indexOf(badHero) === -1){
-        console.log('you sucks!');
-
-    } else{
-        
-        hero.splice(hero.indexOf(badHero),1);
-    }
-}
-
-
-menosHeroes(hero , );*/
-
-
+//FIN FUNCION PARA CARGAR HEROES
